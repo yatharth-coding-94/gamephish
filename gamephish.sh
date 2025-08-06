@@ -32,7 +32,7 @@ banner() {
     printf "${blue} \\______  (____  /__|_|  /\\\___  >   /\\____/ \\/\\_/\\_/\\/\\  ${none}\n"
     printf "${blue}        \\/     \\/      \\/     \\/    \\/                  \\/  ${none}\n"
     printf "\n${yellow} [*] GamePhish - Game Account Security Checker${none}\n"
-    printf "${yellow} [*] Created By: Security Researcher | For Educational Purposes Only${none}\n\n"
+    printf "${yellow} [*] Created By: Yatharth | For Educational Purposes Only${none}\n\n"
 }
 
 # Stop running processes

